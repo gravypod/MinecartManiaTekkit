@@ -1,0 +1,142 @@
+<!--
+  Maven build file for Minecart Mania Core
+
+  Copyright (c) 2010-2011 Afforess <http://www.afforess.com>
+  Minecart Mania Core is licensed under Creative Commons Attribution 3.0 Unported (CC BY 3.0)
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Project information -->
+    <groupId>com.afforess</groupId>
+    <artifactId>minecartmaniacore</artifactId>
+    <name>MinecartMania Reborn Core</name>
+    <url>http://dev.bukkit.org/server-mods/minecartmania-reborn/</url>
+    <description>Minecart Mania Core is the original and official Minecart mod plugin for Bukkit-based Minecraft servers.</description>
+
+    <!-- License -->
+    <licenses>
+        <license>
+            <name>Creative Commons Attribution 3.0 Unported (CC BY 3.0)</name>
+            <url>http://creativecommons.org/licenses/by/3.0/</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <!-- Repository locations -->
+    <repositories>
+        <repository>
+            <id>bukkit-repo</id>
+            <url>http://repo.bukkit.org/content/groups/public</url>
+        </repository>
+       <!--  <repository>
+            <id>craftfire-repo</id>
+            <url>http://db.craftfire.com/repo</url>
+        </repository> -->
+    </repositories>
+
+    <dependencies>
+        <!-- Bukkit -->
+    <dependency>
+      <groupId>org.bukkit</groupId>
+      <artifactId>bukkit</artifactId>
+            <version>1.2.5-R3.0</version>
+      <scope>compile</scope>
+      
+    </dependency>
+
+        <!-- CraftBukkit -->
+       <dependency>
+            <groupId>org.bukkit</groupId>
+            <artifactId>craftbukkit</artifactId>
+            <version>1.2.5-R3.0</version>
+        </dependency>
+
+        <!-- Third-party plugins -->
+<!--         <dependency>
+            <groupId>com.griefcraft</groupId>
+            <artifactId>lwc</artifactId>
+            <version>3.30</version>
+        </dependency>
+        <dependency>
+            <groupId>org.yi.acru.bukkit</groupId>
+            <artifactId>Lockette</artifactId>
+            <version>1.3.8</version>
+        </dependency>
+        <dependency>
+            <groupId>org.akrieger.nethrar</groupId>
+            <artifactId>Nethrar</artifactId>
+            <version>2.3</version>
+        </dependency>
+        <dependency>
+            <groupId>de.luricos.bukkit.WormholeXTreme</groupId>
+            <artifactId>Wormhole</artifactId>
+            <version>1.011</version>
+        </dependency> -->
+    </dependencies>
+
+    <build>
+        <sourceDirectory>${basedir}/src/</sourceDirectory>
+
+        <!-- Resources -->
+        <resources>
+            <resource>
+                <targetPath>.</targetPath>
+                <filtering>true</filtering>
+                <directory>${basedir}/src/</directory>
+                <includes>
+                    <include>README</include>
+                    <include>plugin.yml</include>
+                    <include>MinecartManiaLocale.xml</include>
+                    <include>MinecartManiaConfiguration.xml</include>
+                </includes>
+            </resource>
+        </resources>
+
+        <!-- Plugins -->
+        <plugins>
+
+            <!-- Compile plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+            </plugin>
+
+            <!-- JAR creation plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.3.1</version>
+                <configuration>
+                    <archive>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                        <pomPropertiesFile>false</pomPropertiesFile>
+                        <manifest>
+                            <addDefaultSpecificationEntries>false</addDefaultSpecificationEntries>
+                            <addDefaultImplementationEntries>false</addDefaultImplementationEntries>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+
+    </build>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <skipTests>true</skipTests>
+    </properties>
+    <distributionManagement>
+		<repository>
+			<id>repo</id>
+			<url>https://github.com/mze9412/MzeMaven/raw/master/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshot-repo</id>
+			<url>https://github.com/mze9412/MzeMaven/raw/master/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+    <version>1.4.8</version>
+</project>

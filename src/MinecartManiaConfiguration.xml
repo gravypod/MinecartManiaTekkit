@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MinecartManiaConfiguration>
+	<version>1.53</version>
+	<!--Console Logging Mode. Accepted Values: "None", "Severe", "Normal", "Debug", "Timer"-->
+	<!--None will produce no console logs from MM. Not recommended.-->
+	<!--Severe will produce only console logs from severe errors from MM.-->
+	<!--Normal will produce standard startup console logs, and error logs from MM.-->
+	<!--Debug will produce standard startup console logs, error logs, and debugging logs from MM.-->
+	<!--Timer will produce standard startup console logs, error logs, debugging logs, and process time logs, from MM.-->
+	<LoggingMode>Normal</LoggingMode>
+	<!--Minecarts that collide with mobs and animals will kill them and continue uninterrupted.-->
+	<MinecartsKillMobs>true</MinecartsKillMobs>
+	<!--If set to 0, Minecarts Will not clear rails. If set to 1, Minecarts will clear the rails of non-living objects in the way (items, arrows, snowballs, etc).
+	If set to 2, Minecarts Will clear the rails of all non-living objects, and living objects, excluding players. 
+	If Set to 3, Minecarts will clear the rails of all objects, non-living objects, living objects, and all players, excluding the owner of the minecart.
+	Objects in the way of the rails will be shunted off to the side a safe distance away.-->
+	<MinecartsClearRails>1</MinecartsClearRails>
+	<!--The Server will Load Chunks around minecarts, and will not unload chunks with minecarts in them. May cause excessive RAM usage.-->
+	<KeepMinecartsLoaded>true</KeepMinecartsLoaded>
+	<!--Destroyed Minecarts will be sent back to the player (or chest) that created them, if possible. If not, they will be dropped normally.-->
+	<MinecartsReturnToOwner>true</MinecartsReturnToOwner>
+	<!--Adjusts the maximum minecart speed that can be set by a sign.-->
+	<MaximumMinecartSpeedPercent>165</MaximumMinecartSpeedPercent>
+	<!--Adjusts the maximum minecart speed. 100% is equal to the vanilla Minecart speed. Large values will cause minecarts to derail.-->
+	<DefaultMinecartSpeedPercent>100</DefaultMinecartSpeedPercent>
+	 <!--The X and Z axis range minecarts will collect items at, farm around themselves, collect from chests, etc...-->
+	<Range>4</Range>
+	 <!--The Y axis range minecarts will collect items at, farm around themselves, collect from chests, etc...-->
+	<RangeY>4</RangeY>
+	<!--The maximum range that minecarts can have. Overrides signs.-->
+	<MaximumRange>10</MaximumRange>
+	<!--Stack All Items (Regardless of Notch's stacking limit on certain items)-->
+	<StackAllItems>true</StackAllItems>
+	<!--Minecarts that are destroyed will not drop an item if they are destroyed-->
+	<RemoveDeadMinecarts>false</RemoveDeadMinecarts>
+    <!--MM only searchs under or parallel to rails for signs, harshly limiting the search radius. 
+	This will improve performance, but will restrict sign placement.-->
+	<LimitedSignRange>false</LimitedSignRange>
+    <!--Minecarts Disappear on disconnect. Players who are inside of a minecart will cause the minecart to "disconnect" 
+	as well, and re-join when the player does. Minecarts will re-appear and retain their previous settings and speed on reconnecting.-->
+	<DisappearOnDisconnect>true</DisappearOnDisconnect>
+	<ControlBlocks>
+		<ControlBlock>
+			<!--Item Name or Item Id for this control block-->
+			<BlockType>OBSIDIAN</BlockType>
+			<!--Speed Multiplier for this block-->
+			<SpeedMultipliers/>
+			<!--Marks this as a catcher block-->
+			<Catch redstone="disables">true</Catch>
+			<!--Speed at which minecarts are launched. 0.6 is full speed.-->
+			<LauncherSpeed redstone="enables">0.6</LauncherSpeed>
+			<!--Marks this as a ejector block-->
+			<Eject/>
+			<!--Marks this as a platform block-->
+			<Platform/>
+			<!--Marks this as a station block-->
+			<Station/>
+			<!--This block will spawn minecarts, when the conditions are met-->
+			<SpawnMinecart/>
+			<!--This block will kill minecarts, when the conditions are met-->
+			<KillMinecart/>
+			<!--This block will act as an elevator, teleporting minecarts up or down on the Y axis to a matching elevator block-->
+			<Elevator/>
+		</ControlBlock>
+		<ControlBlock>
+			<BlockType>POWERED_RAIL</BlockType>
+			<SpeedMultipliers>
+				<!-- One control block may have multiple SpeedMultiplier sections -->
+				<SpeedMultiplier>
+					<!--Redstone may be "enables", "disables", or "default". "default" means the redstone state is ignored-->
+					<Redstone>disables</Redstone>
+					<!-- Speed Multiplier -->
+					<Multiplier>16.0</Multiplier>
+					<!-- Direction a minecart must be moving to be affected. May be "North", "East", "South", "West", or "Any" -->
+					<Direction>Any</Direction>
+					<!-- The type of minecart affected by this control block -->
+					<MinecartTypes>
+						<MinecartType>Standard</MinecartType>
+						<MinecartType>Powered</MinecartType>
+						<MinecartType>Storage</MinecartType>
+					</MinecartTypes>
+					<!--Passenger may be "enables", "disables", or "default". "default" means the type of passenger is ignored-->
+					<Passenger>default</Passenger>
+				</SpeedMultiplier>
+				<SpeedMultiplier>
+					<!--Redstone may be "enables", "disables", or "default". "default" means the redstone state is ignored-->
+					<Redstone>enables</Redstone>
+					<!-- Speed Multiplier -->
+					<Multiplier>0.0125</Multiplier>
+					<!-- Direction a minecart must be moving to be affected. May be "North", "East", "South", "West", or "Any" -->
+					<Direction>Any</Direction>
+					<!-- The type of minecart affected by this control block -->
+					<MinecartTypes>
+						<MinecartType>Standard</MinecartType>
+						<MinecartType>Powered</MinecartType>
+						<MinecartType>Storage</MinecartType>
+					</MinecartTypes>
+					<!--Passenger may be "enables", "disables", or "default". "default" means the type of passenger is ignored-->
+					<Passenger>default</Passenger>
+				</SpeedMultiplier>
+			</SpeedMultipliers>
+			<Catch/>
+			<LauncherSpeed/>
+			<Eject/>
+			<Platform/>
+			<Station/>
+			<SpawnMinecart/>
+			<KillMinecart/>
+			<Elevator/>
+			<AutoConvertToPoweredRails>false</AutoConvertToPoweredRails>
+		</ControlBlock>
+		<ControlBlock>
+			<BlockType>GOLD_BLOCK</BlockType>
+			<SpeedMultipliers/>
+			<Catch/>
+			<LauncherSpeed/>
+			<Eject/>
+			<Platform/>
+			<Station/>
+			<SpawnMinecart/>
+			<KillMinecart/>
+			<Elevator/>
+			<AutoConvertToPoweredRails>false</AutoConvertToPoweredRails>
+		</ControlBlock>
+		<ControlBlock>
+			<BlockType>GOLD_ORE</BlockType>
+			<SpeedMultipliers/>
+			<Catch/>
+			<LauncherSpeed/>
+			<Eject/>
+			<Platform/>
+			<Station/>
+			<SpawnMinecart/>
+			<KillMinecart/>
+			<Elevator/>
+			<AutoConvertToPoweredRails>false</AutoConvertToPoweredRails>
+		</ControlBlock>
+		<ControlBlock>
+			<BlockType>WOOL</BlockType>
+			<SpeedMultipliers>
+				<!-- One control block may have multiple SpeedMultiplier sections -->
+				<SpeedMultiplier>
+					<!--Redstone may be "enables", "disables", or "default". "default" means the redstone state is ignored-->
+					<Redstone>disables</Redstone>
+					<!-- Speed Multiplier -->
+					<Multiplier>-1</Multiplier>
+					<!-- Direction a minecart must be moving to be affected. May be "North", "East", "South", "West", or "Any" -->
+					<Direction>Any</Direction>
+					<!-- The type of minecart affected by this control block -->
+					<MinecartTypes>
+						<MinecartType>Standard</MinecartType>
+						<MinecartType>Powered</MinecartType>
+						<MinecartType>Storage</MinecartType>
+					</MinecartTypes>
+					<!--Passenger may be "enables", "disables", or "default". "default" means the type of passenger is ignored-->
+					<Passenger>default</Passenger>
+				</SpeedMultiplier>
+			</SpeedMultipliers>
+			<Catch/>
+			<LauncherSpeed/>
+			<Eject/>
+			<Platform/>
+			<Station/>
+			<SpawnMinecart/>
+			<KillMinecart/>
+			<Elevator/>
+		</ControlBlock>
+		<ControlBlock>
+			<BlockType>SOUL_SAND</BlockType>
+			<SpeedMultipliers/>
+			<Catch/>
+			<LauncherSpeed/>
+			<Eject/>
+			<Platform/>
+			<Station/>
+			<SpawnMinecart/>
+			<KillMinecart/>
+			<Elevator/>
+			<AutoConvertToPoweredRails>false</AutoConvertToPoweredRails>
+		</ControlBlock>
+		<ControlBlock>
+			<BlockType>GRAVEL</BlockType>
+			<SpeedMultipliers/>
+			<Catch/>
+			<LauncherSpeed/>
+			<Eject/>
+			<Platform/>
+			<Station/>
+			<SpawnMinecart/>
+			<KillMinecart/>
+			<Elevator/>
+			<AutoConvertToPoweredRails>false</AutoConvertToPoweredRails>
+		</ControlBlock>
+		<ControlBlock>
+			<BlockType>IRON_BLOCK</BlockType>
+			<SpeedMultipliers/>
+			<Catch/>
+			<LauncherSpeed/>
+			<Eject redstone="disables">true</Eject>
+			<Platform/>
+			<Station/>
+			<SpawnMinecart/>
+			<KillMinecart/>
+			<Elevator/>
+		</ControlBlock>
+		<ControlBlock>
+			<BlockType>BRICK</BlockType>
+			<SpeedMultipliers/>
+			<Catch/>
+			<LauncherSpeed/>
+			<Eject/>
+			<Platform/>
+			<Station redstone="default">true</Station>
+			<SpawnMinecart/>
+			<KillMinecart/>
+			<Elevator/>
+		</ControlBlock>
+		<ControlBlock>
+			<BlockType>LIGHT_GREEN_WOOL</BlockType>
+			<SpeedMultipliers/>
+			<Catch/>
+			<LauncherSpeed/>
+			<Eject/>
+			<Platform redstone="disables" range="4">true</Platform>
+			<Station/>
+			<SpawnMinecart/>
+			<KillMinecart/>
+			<Elevator/>
+		</ControlBlock>
+		<ControlBlock>
+			<BlockType>DIAMOND_BLOCK</BlockType>
+			<SpeedMultipliers/>
+			<Catch/>
+			<LauncherSpeed redstone="enables">0.6</LauncherSpeed>
+			<Eject/>
+			<Platform/>
+			<Station/>
+			<SpawnMinecart redstone="enables">true</SpawnMinecart>
+			<KillMinecart/>
+			<Elevator/>
+		</ControlBlock>
+		<ControlBlock>
+			<BlockType>DIAMOND_ORE</BlockType>
+			<SpeedMultipliers/>
+			<Catch/>
+			<LauncherSpeed/>
+			<Eject/>
+			<Platform/>
+			<Station/>
+			<SpawnMinecart/>
+			<KillMinecart redstone="disables">true</KillMinecart>
+			<Elevator/>
+		</ControlBlock>
+		<ControlBlock>
+			<BlockType>RED_WOOL</BlockType>
+			<SpeedMultipliers/>
+			<Catch/>
+			<LauncherSpeed/>
+			<Eject/>
+			<Platform/>
+			<Station/>
+			<SpawnMinecart/>
+			<KillMinecart/>
+			<Elevator redstone="disables">true</Elevator>
+		</ControlBlock>
+	</ControlBlocks>
+	<ItemAliases>
+		<ItemAlias>
+			<!--The Custom Alias for the list of items that follows it. 
+			Not nessecary, but useful for shortening a long list of items into a short phrase.
+			Avoid using already taken item names, or taken item id's, as the alias will take priority over the existing name!-->
+			<AliasName>Ores</AliasName>
+			<!--The Item Name or Item Id and Data Value-->
+			<ItemType>GOLD_ORE</ItemType>
+			<ItemType>IRON_ORE</ItemType>
+			<ItemType>COAL_ORE</ItemType>
+			<ItemType>LAPIS_ORE</ItemType>
+		</ItemAlias>
+		<ItemAlias>
+			<AliasName>Food</AliasName>
+			<ItemType>260</ItemType>
+			<ItemType>297</ItemType>
+			<ItemType>322</ItemType>
+			<ItemType>354</ItemType>
+			<ItemType>350</ItemType>
+			<ItemType>319</ItemType>
+			<ItemType>320</ItemType>
+		</ItemAlias>
+	</ItemAliases>
+</MinecartManiaConfiguration>
